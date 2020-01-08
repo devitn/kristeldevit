@@ -1,0 +1,115 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 6.75%;">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <p class="card-category">User</p>
+                        <h3 class="card-title">{{items.length}} <small>users</small></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">keyboard_arrow_right</i>
+                            <a routerLink="/table-list">Go To List Of Users</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">format_align_right</i>
+                        </div>
+                        <p class="card-category">Stock</p>
+                        <h3 class="card-title">{{stock.length}} <small>products</small></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                            <a routerLink="/stock">Go To List Of Stock</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">list_box</i>
+                        </div>
+                        <p class="card-category">Orders</p>
+                        <h3 class="card-title">{{forms.length }} <small>Orders</small></h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                            <a routerLink="/order">Go To List Of Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 6.75%;">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="card card-stats">
+                    <div class="card-header card-header-primary text-center">
+                        <h3 class="card-title" style="font-weight: bolder;">VERAGUAS</h3>
+                        <h4 class="card-title">{{v.length}} <small>Orders</small></h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">keyboard_arrow_right</i>
+                            <a routerLink="/order/VERAGUAS">Go To List Of Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info text-center">
+                        <h3 class="card-title" style="font-weight: bolder;">COCLE</h3>
+                        <h4 class="card-title">{{c.length}} <small>Orders</small></h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                            <a routerLink="/order/COCLE">Go To List Of Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="card card-stats">
+                    <div class="card-header card-header-primary text-center">
+                        <h3 class="card-title" style="font-weight: bolder;">AZUERO</h3>
+                        <h4 class="card-title">{{a.length }} <small>Orders</small></h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                            <a routerLink="/order/AZUERO">Go To List Of Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info text-center">
+                        <h3 class="card-title" style="font-weight: bolder;">CHIRIQUI</h3>
+                        <h4 class="card-title">{{ch.length }} <small>Orders</small></h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                            <a routerLink="/order/CHIRIQUI">Go To List Of Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

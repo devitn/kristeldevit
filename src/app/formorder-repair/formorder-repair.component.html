@@ -1,0 +1,122 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Create order of service : REPAIR</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.name' class="form-control" required placeholder="Name *">
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.phone' class="form-control"  required placeholder="Phone *" type="email">
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.tel' class="form-control"  required placeholder="CellPhone" type="text">
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.adresse' class="form-control" required placeholder="Address *" type="text">
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <select [(ngModel)]='repair.statut' class="form-control" required placeholder="Equipement">
+                    <option value="" hidden selected>Statut</option>
+                    <option value="1">Warranty</option>
+                    <option value="0">No Warranty</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="row" *ngIf="repair.statut == '1'">
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <select [(ngModel)]='repair.equipemenet' class="form-control" required placeholder="Equipement">
+                    <option value="" hidden selected>Equipement</option>
+                    <option value="WASHING MACHINE">WASHING MACHINE</option>
+                    <option value="REFRIGERATOR">REFRIGERATOR</option>
+                    <option value="WASHING CENTER">WASHING CENTER</option>
+                    <option value="MICROWAVE">MICROWAVE</option>
+                    <option value="STOVE">STOVE</option>
+                    <option value="AIR CONDITIONER">AIR CONDITIONER</option>
+                    <option value="TELEVISION">TELEVISION</option>
+                    <option value="SOUND SYSTEM">SOUND SYSTEM</option>
+                    <option value="DRYER">DRYER</option>
+                    <option value="ICE-MAKER">ICE-MAKER</option>
+                    <option value="DISHWASHER">DISHWASHER</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <select [(ngModel)]='repair.brand' class="form-control" required placeholder="Brand">
+                    <option value="" hidden selected>Brand</option>
+                    <option value="SAMSUNG">SAMSUNG</option>
+                    <option value="PANASONIC">PANASONIC</option>
+                    <option value="MABE">MABE</option>
+                    <option value="WHIRLPOOL">WHIRLPOOL</option>
+                    <option value="GENERAL ELECTRIC">GENERAL ELECTRIC</option>
+                    <option value="LG">LG</option>
+                  </select>
+                </label>
+              </div>
+              
+              <div class="col-md-4">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.file' class="form-control" id="selectFile" required placeholder="Upload Invoice" type="file">
+                </label>
+              </div>
+            </div>
+            <div class="row" *ngIf="repair.statut == '0'">
+              <div class="col-md-6">
+                <label class="example-full-width">
+                  <select [(ngModel)]='repair.equipemenet' class="form-control" required placeholder="Equipement">
+                    <option value="" hidden>Equipement</option>
+                    <option value="WASHING MACHINE">WASHING MACHINE</option>
+                    <option value="REFRIGERATOR">REFRIGERATOR</option>
+                    <option value="WASHING CENTER">WASHING CENTER</option>
+                    <option value="MICROWAVE">MICROWAVE</option>
+                    <option value="STOVE">STOVE</option>
+                    <option value="AIR CONDITIONER">AIR CONDITIONER</option>
+                    <option value="TELEVISION">TELEVISION</option>
+                    <option value="SOUND SYSTEM">SOUND SYSTEM</option>
+                    <option value="DRYER">DRYER</option>
+                    <option value="ICE-MAKER">ICE-MAKER</option>
+                    <option value="DISHWASHER">DISHWASHER</option>
+                  </select>
+                </label>
+              </div>
+              <div class="col-md-6">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.brand' class="form-control" required placeholder="Brand *" type="text">
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label class="example-full-width">
+                  <input [(ngModel)]='repair.issue' class="form-control" required placeholder="Issue *" type="text">
+                </label>
+              </div>
+            </div>
+            <button *ngIf="repair.statut == '1'" mat-raised-button (click)="addRepairFile()" class="btn btn-info pull-right">Save</button>
+            <button *ngIf="repair.statut == '0'" mat-raised-button (click)="addRepair()" class="btn btn-info pull-right">Save</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

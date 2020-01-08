@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-6 m-auto">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="card card-login">
+        <div class="card-header card-header-info text-center">
+          <h4 class="card-title">Log in</h4>
+        </div>
+        <div class="card-body ">
+          <span class="bmd-form-group">
+            <div class="input-group" style="margin: 25px 0;">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="material-icons">email</i></span>
+              </div>
+              <input class="form-control" formControlName="userName" required placeholder="Email..." type="email">
+            </div>
+          </span>
+          <span class="bmd-form-group">
+            <div class="input-group" style="margin: 25px 0;">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="material-icons">lock_outline</i></span>
+              </div>
+              <input class="form-control" formControlName="password" required placeholder="Password..." type="password">
+            </div>
+          </span>
+        </div>
+        <div class="card-footer justify-content-center">
+          <button class="btn btn-rose btn-link btn-lg">Lets Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

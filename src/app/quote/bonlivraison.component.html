@@ -1,0 +1,122 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-md-6 offset-6 text-center">
+              <h4><img src="/assets/img/logo2.png" style="width: 50%"/></h4>
+              <h4>Multi-Services Santiago</h4>
+              <h4>Société De Livraison De Colis</h4>
+              <h4>Address : Street number, Street name<br>City, Post code, Country70018.</h4>
+            </div>
+            <div  *ngFor="let cnx of user; let i = index" class="col-md-12">
+              <hr>
+              <h2>Customer information <span style="position: absolute; right: 20%; font-weight: bold;">Quotation</span></h2>
+              <h4>Date : {{ now | date:'dd/MM/yyyy' }}</h4>
+              <h4>Name : {{cnx.name}}</h4>
+              <h4>Phone : {{cnx.phone}} - {{cnx.tel}} <span style="position: absolute; right: 20%;">HOUR: {{ now | date:'HH:mm' }}</span></h4>
+              <h4>Address : {{cnx.adresse}} </h4>
+              <h4>Governorate : {{cnx.gov}} </h4>
+              <h4>Reference : {{cnx.service}}, {{cnx.equipemenet}}, {{cnx.brand}}  </h4>
+            </div>
+            <div class="col-md-12"  style="width: 100%">
+              <div class=" text-right">
+                <a href="javascript:void();" data-toggle="modal" data-target="#ajouter" class="btn btn-success btn-round imprimer"> <i class="material-icons">add_circle</i> Add new service</a>
+                <button (click)="onPrint()" class="btn btn-warning btn-round imprimer"><i class="material-icons">print</i> Print</button>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>  
+                    <th>Reference</th>
+                    <th>Designation</th>
+                    <th>Unit Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center imprimer">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let group of items; let i = index">
+                    <td>{{group.ref}}</td>
+                    <td>{{group.designation}}</td>
+                    <td class="text-center">{{group.price | number : '1.2-2'}} $</td>
+                    <td class="text-center">{{group.qte}}</td>
+                    <td class="text-center">{{ group.price*group.qte | number : '1.2-2' }} $</td>
+                    <td class="text-center imprimer"><button (click)="delete(group.key)" class="btn btn-danger btn-sm btn-round btn-fab"><i class="material-icons">clear</i></button></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="border: 0!important;"></td>                  
+                    <td class="text-right">Sub Total</td>                          
+                    <td>{{ getSum() | number : '1.2-2' }} $</td>                                              
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="border: 0!important;"></td>                                              
+                    <td class="text-right">V.A.T (%)</td>                                            
+                    <td contenteditable (blur)="updateList($event)"><span *ngFor="let list of vats;">{{list.vat}}</span></td>                                            
+                  </tr> 
+                  <tr>
+                    <td colspan="3" style="border: 0!important;"></td>                                              
+                    <td class="text-right">Total</td>                                            
+                    <td>{{ getSumVat() | number : '1.2-2' }} $</td>                                              
+                  </tr>                                           
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-12 imprimer" style="width: 100%">
+              <button (click)="saveQuotation()" class="btn btn-info btn-round pull-right">Send a quotation <i class="material-icons">near_me</i> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- modal ajout -->
+<div class="modal animated bounceIn" id="ajouter">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h4 class="modal-title" id="myModalLabel10">Add new service</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-body">
+            <div class="row">
+              <label class="col-sm-3 text-right control-label col-form-label">Reference*: </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" required name="ref" [(ngModel)]="quotation.ref">
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-sm-3 text-right control-label col-form-label">Designation*: </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" required name="designation" [(ngModel)]="quotation.designation">
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-sm-3 text-right control-label col-form-label">Unit price*: </label>
+              <div class="col-md-8">
+                <input type="number" class="form-control" required name="price" [(ngModel)]="quotation.price" step="any">
+              </div>
+            </div>
+
+            <div class="row">
+              <label class="col-sm-3 text-right control-label col-form-label">Quantity*: </label>
+              <div class="col-md-8">
+                <input type="number" class="form-control" required name="qte" [(ngModel)]="quotation.qte">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="addQuotation()" class="btn btn-primary font-weight-bold btn-rounded" data-dismiss="modal">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Create order of service : MAINTENANCE</h4>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="example-full-width">
+                    <input  class="form-control" [(ngModel)]='maintenance.name' required placeholder="Name *">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="example-full-width">
+                    <input  class="form-control" [(ngModel)]='maintenance.phone' required placeholder="Phone *" type="number">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="example-full-width">
+                    <input  class="form-control" [(ngModel)]='maintenance.tel' required placeholder="CellPhone" type="number">
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="example-full-width">
+                    <input  class="form-control" [(ngModel)]='maintenance.adresse' required placeholder="Address *" type="text">
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="example-full-width">
+                    <input  class="form-control" value="AIR CONDITIONER" readonly required placeholder="Equipement *" type="text">
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label class="example-full-width">
+                    <input class="form-control" [(ngModel)]='maintenance.brand' required placeholder="Brand *" type="text">
+                  </label>
+                </div>
+              </div>
+              <button mat-raised-button (click)="addMaintenance()" class="btn btn-info pull-right">Save</button>
+              <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
